@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5433/postgres</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">postgres</property>
+
+    <!-- Dialect для PostgreSQL -->
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+    <!-- Автоматическое создание/обновление таблиц -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+
+    <!-- Логирование SQL-запросов -->
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+
+    <property name="hibernate.connection.autocommit">true</property>
+    <property name="hibernate.c3p0.max_size">50</property>
+
+
+    <!-- Укажи свои Entity-классы -->
+    <mapping class="org.example.entity.Employee"/>
+    <mapping class="org.example.entity.Position"/>
+    <mapping class="org.example.entity.WorkTime"/>
+    <mapping class="org.example.entity.LeaveRequest"/>
+    <mapping class="org.example.entity.Attendance"/>
+    <mapping class="org.example.entity.PerformanceReview"/>
+    <mapping class="org.example.entity.Payroll"/>
+  </session-factory>
+</hibernate-configuration>
